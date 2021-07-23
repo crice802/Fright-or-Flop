@@ -7,7 +7,7 @@ export {
 
 const router = Router()
 
-router.post('/search', isLoggedIn, moviesCtrl.search)
+router.get('/search', isLoggedIn, moviesCtrl.search)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
