@@ -29,19 +29,11 @@
                 />
               <% } %>
               <div class="card-body">
-                <p class="card-title fs-4 text-light"><%= game.name %></p>
-                <p class="card-text fs-5 text-light">Released: <%= game.released %></p>
-                <p class="card-text mb-1 fs-5 text-light">Platforms:</p>
-                <ul>
-                  <% game.platforms?.forEach(p => { %>
-                    <li class="card-text fs-6 text-light"><%= p.platform.name %></li>
-                  <% }) %>
-                </ul>
-                <p class="card-text fs-6 text-light">
-                  Metacritic Score: <%= game.metacritic ? game.metacritic : 'N/A' %>
-                </p>
-                <%# This is where our game show UI will go %> 
-                <a href="/games/<%= game.id %>" class="btn btn-primary">Details</a>
+                <p class="card-title fs-4 text-light"><%= movie.name %></p>
+                <p class="card-text fs-5 text-light">Released: <%= movie.released %></p>
+                
+                <%# This is where our movie show UI will go %> 
+                <a href="/movies/<%= movie.id %>" class="btn btn-primary">Details</a>
               </div>
             </div>
           </div>

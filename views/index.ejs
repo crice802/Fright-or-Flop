@@ -1,16 +1,16 @@
-<%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+<%- include('partials/html-head') %>
+<%- include('partials/nav') %>
 
 <main>
-  <h1>hello, <%= user ? user.profile.name : "friend" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img 
-        src="<%= user.profile.avatar %>" 
-        alt="<%= user.profile.name %> avatar"
-      >
-    </div>
+  <% if (user) { %>
+    <h1><%= title %></h1>
+    <h3>New Users</h3>
+    
+    <h3>New Reviews</h3>
+    
+    <h3>New Movies Added</h3>
+    
+    
   <% } %>
 </main>
 
-<%- include('./partials/footer') %>

@@ -8,6 +8,7 @@ import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
 import { passUserToView } from './middleware/middleware.js'
+import cors from 'cors'
 
 // create the express app
 const app = express()
@@ -21,6 +22,7 @@ import('./config/passport.js')
 // require routes
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
+import { router as profilesRouter } from './routes/profiles.js'
 import { router as moviesRouter} from './routes/movies.js'
 
 
@@ -32,6 +34,7 @@ app.set(
 app.set('view engine', 'ejs')
 
 // middleware
+app.use(cors())
 app.use(methodOverride('_method'))
 app.use(logger('dev'))
 app.use(express.json())
@@ -59,10 +62,14 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session())
 
+//custom middleware
+app.use(passUserToView)
+
 // router middleware
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/movies', moviesRouter)
+app.use('/profiles', profilesRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))

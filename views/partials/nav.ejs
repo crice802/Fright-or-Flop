@@ -1,54 +1,84 @@
-  <% if (!user) { %>
-    <link rel="stylesheet" href="/stylesheets/siwg.css">
-  <% } %>
+<% if (!user) { %>
+  <link rel="stylesheet" href="/stylesheets/siwg.css">
+<% } %>
 </head>
 <body>
-  <nav>
-    <% if (user) { %>
-      <a href="/auth/logout">
-        <button type="submit">Logout</button>
-      </a>
-    <% } else { %>
-      <a href="/auth/google" class="siwg-link">
-        <button type="submit" class="siwg">
-          <img id="siwg-image" alt="Sign in with Google" />
-        </button>
-      </a>
-    <% } %>
-  </nav>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Fright or Flop:<br>Creepy Critiques</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+<header class="p-3 bg-dark text-white">
+  <nav class="container">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <ul
+        class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 justify-content-center"
+      >
+        <li class="d-flex align-items-center mb-2 mb-lg-0 fs-3">
+          <a href="/" class="text-light text-decoration-none">Fright or Flop:<br>Creepy Critiques</a>
+        </li>
+        <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
+          <a href="/profiles" class="text-light text-decoration-none">
+            View Users
+          </a>
+        </li>
+      </ul>
+      <form action="/movies/search" method="POST" class="d-flex align-items-center me-3">
+        <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+      <div class="text-end d-flex align-items-center">
+        <% // TODO: Add login logic here %>
+        <% if (user) { %>
+          <div id="profile-dropdown" class="dropdown text-end">
+            <a 
+              id="dropdownUser"
+              href="/profiles/<%= user.profile._id %> "
+              class="d-block link-light text-decoration-none"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <% if(user?.profile.avatar) {%>
+                <img 
+                  class="rounded-circle avatar-img"
+                  src="<%= user.profile.avatar %>" 
+                  alt="Your avatar"
+                >
+              <% } else { %>
+                <img
+                  class="avatar-img"
+                  src="/images/icons/user-small.png" 
+                  alt="A placeholder avatar"
+                >
+              <% } %> 
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <ul 
+              class="dropdown-menu bg-secondary" 
+              aria-labelledby="dropdownUser"
+            >
+              <li>
+                <a 
+                  href="/profiles/<%= user.profile._id %>" 
+                  class="dropdown-item bg-secondary text-white"
+                >
+                  My Profile
+                </a>
+              </li>
+              <li><hr class="dropdown-divider bg-secondary text-white"></li>
+              <li>
+                <a 
+                  href="/auth/logout" 
+                  class="dropdown-item bg-secondary text-white"
+                >
+                  Sign Out
+                </a>
+              </li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-        <form action="/games/search" method="POST" class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search Movies" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+          </div>
+        <% } else { %>
+          <a href="/auth/google" class="siwg-link right item">
+            <button type="submit" class="siwg">
+              <img id="siwg-image" alt="Sign in with Google" />
+            </button>
+          </a>
+        <% } %>
       </div>
     </div>
   </nav>
+</header> 

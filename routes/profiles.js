@@ -7,9 +7,11 @@ export {
 
 const router = Router()
 
-router.get('/', function (req, res) {
-  res.render('index', { title: 'Home Page', user: req.user ? req.user : null })
-})
+router.get('/', isLoggedIn, profilesCtrl.index)
+router.get('/:id', isLoggedIn, profilesCtrl.show)
+router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
+router.put('/:id', isLoggedIn, profilesCtrl.update)
+
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
