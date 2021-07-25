@@ -14,7 +14,7 @@
               <% if (movie.poster_path) { %>
                 <img
                   class="card-img-top"
-                  src="https://api.themoviedb.org/3/movie/<%=  movie._id %>/images?api_key=$<%= process.env.API_KEY %>"
+                  src="https://image.tmdb.org/t/p/w500/<%=  movie.poster_path %>"
                   alt="<%= movie.title %>'s image"
                   width="100%"
                   height="170"
