@@ -7,7 +7,7 @@ export {
 
 const movieSchema = new Schema({
   name: String,
-  movid: Number,
+  movId: Number,
   original_title: String,
   poster_path: String,
   backdrop_path: String || null,

@@ -66,20 +66,24 @@ function edit(req, res){
   })
 }
 
-function show(req, res){
+function show(req, res) {
   Profile.findById(req.params.id)
-  .populate('friends')
+  .populate("friends")
   .then((profile) => {
-    Profile.findById(req.user.profile)
-    .then(userProfile => {
-      res.render("profiles/show", {
-        profile,
-        userProfile,
-        title: `${profile.name}'s profile`,
+    Movie.find({ collectedBy: profile._id })
+    .then((movie) => {
+      Profile.findById(req.user.profile)
+      .then(userProfile => {
+        res.render("profiles/show", {
+          title: `${profile.name}'s profile`,
+          profile,
+          userProfile,
+          movie
+        })
       })
     })
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err)
     res.redirect("/")
   })

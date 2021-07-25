@@ -28,7 +28,7 @@ function addToCollection(req, res) {
       //if movie isnt in database create it
       Movie.create(req.body)
       .then(() => {
-        res.redirect(`movies/${ req.params.id }`)
+        res.redirect(`/movies/${ req.params.id }`)
       })
     }
   })
@@ -61,12 +61,14 @@ function show(req, res) {
   .then((response) => {
     Movie.findOne ({ movId: response.data.id})
     // this is where well populate colletedBy
+    .populate('collectedBy')
     //this is where we will deep pop our reviews
     .then((movie) => {
+      console.log(movie)
       res.render("movies/show", {
         title: "Movie Details",
         apiResult: response.data,
-        movie
+        movie: movie
       })
     })
   })

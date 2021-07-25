@@ -1,6 +1,6 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
+<h1><%= JSON.stringify(apiResult.id) %> </h1>
 
 <main>
   <section class="bg-dark text-secondary px-4">
@@ -41,6 +41,45 @@
       </div>
       <p class="mt-4 fs-4 text-light">Released: <%= apiResult.release_date %></p>
       <%# This is where we'll list the profiles who have collected the movie %> 
+      <div class="accordion" id="accordion">
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingTwo">
+            <button 
+              class="accordion-button bg-dark text-light" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#collapseTwo" 
+              aria-expanded="true" 
+              aria-controls="collapseTwo"
+            >
+            This movie appears in <%= movie?.collectedBy.length %> FoF user collections:
+          </button>
+        </h2>
+        <div 
+          id="collapseTwo" 
+          class="accordion-collapse collapse" 
+          aria-labelledby="headingTwo" 
+          data-bs-parent="#accordion"
+        >
+          <div class="accordion-body">
+            <% movie?.collectedBy.forEach(profile => { %>
+              <a href="/profiles/<%= profile._id %>" class="text-white">
+                <p>
+                  <img 
+                    src="<%= profile.avatar %>" 
+                    alt="<%= profile.name %>'s avatar"
+                    class="me-3 rounded-circle"
+                    width="50px"
+                    height="50px"
+                  >
+                  <%= profile.name %>
+                </p>
+              </a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     <%# This is where we'll display a button to add/remove the movie from your collection %> 
     <%# if movie isnt collected by anyone create it with a form and post %> 
@@ -68,6 +107,7 @@
         Add To Collection
       </button> 
     </form>
+    <% } %> 
   <% if (movie?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %>
     <form 
       class="text-center" 
