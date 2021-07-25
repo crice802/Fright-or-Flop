@@ -6,7 +6,53 @@ import { response } from "express";
 export {
   search,
   show,
+  addToCollection,
+  removeFromCollection,
 
+}
+
+function addToCollection(req, res) {
+  //searching if collected by has user profile
+  req.body.collectedBy = req.user.profile._id
+  //find the movie by id
+  Movie.findOne({ movId: req.params.id })
+  .then((movie) => {
+    //if movie has been has been collected by user add user to info to collectedBy array 
+    if (movie) {
+      movie.collectedBy.push(req.use.profile._id)
+      movie.save()
+      .then(() => {
+        res.redirect(`movies/${ req.params.id }`)
+      })
+    } else {
+      //if movie isnt in database create it
+      Movie.create(req.body)
+      .then(() => {
+        res.redirect(`movies/${ req.params.id }`)
+      })
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
+function removeFromCollection(req, res) {
+  // Find the movie in the database
+  Movie.findOne({ movId: req.params.id })
+  .then(movie => {
+    // Remove the user's profile id from collectedBy
+    movie.collectedBy.remove({ _id: req.user.profile._id })
+    movie.save()
+    .then(() => {
+      res.redirect(`/movies/${ req.params.id }`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function show(req, res) {

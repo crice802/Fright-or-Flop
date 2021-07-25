@@ -43,7 +43,43 @@
       <%# This is where we'll list the profiles who have collected the movie %> 
     </div>
     <%# This is where we'll display a button to add/remove the movie from your collection %> 
-    
+    <%# if movie isnt collected by anyone create it with a form and post %> 
+    <% if (!movie?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %> 
+      <form
+        class="text-center"
+        action="/movies/<%= apiResult.id %>/addToCollection"
+        method="POST"
+      >
+        <input type="text" name="title" hidden value="<%= apiResult.title %>">  
+        <input type="text" name="movId" hidden value="<%= apiResult.id %>">
+        <input
+          type="text"
+          name="imageUrl"
+          hidden 
+          value="https://image.tmdb.org/t/p/w500/<%=  apiResult.poster_path %>"
+        >
+        <input
+        type="text" 
+        name="released" 
+        hidden 
+        value="<%= apiResult.release_date %>"
+      >
+      <button class="btn btn-primary">
+        Add To Collection
+      </button> 
+    </form>
+  <% if (movie?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %>
+    <form 
+      class="text-center" 
+      action="/movies/<%= apiResult.id %>/removeFromCollection?_method=DELETE" 
+      method="POST"
+    >
+      <button class="btn btn-danger">
+        Remove From Collection
+      </button>
+    </form>
+  <% } %>
+
     <div class="container">
       <%# This is where we'll display a form to add a review once the movie is added to your collection %> 
       
