@@ -1,0 +1,56 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+
+<main>
+  <section class="bg-dark text-secondary px-4">
+    <h1 class="display-5 fw-bold text-white pt-2 text-center">
+      <%= apiResult.title %>
+    </h1>
+    <div class="container py-4">
+      <img 
+        width="100%" 
+        src="<%= apiResult.background_path %>" 
+        alt="<%= apiResult.title %>'s background image"
+      >
+      <div class="accordion" id="accordion">
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingOne">
+            <button 
+              class="accordion-button bg-dark text-light" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#collapseOne" 
+              aria-expanded="true" 
+              aria-controls="collapseOne"
+            >
+              Movie Description
+            </button>
+          </h2>
+          <div 
+            id="collapseOne" 
+            class="accordion-collapse collapse" 
+            aria-labelledby="headingOne" 
+            data-bs-parent="#accordion"
+          >
+            <div class="accordion-body">
+              <p class="mt-4"><%= apiResult.overview %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mt-4 fs-4 text-light">Released: <%= apiResult.release_date %></p>
+      <%# This is where we'll list the profiles who have collected the movie %> 
+    </div>
+    <%# This is where we'll display a button to add/remove the movie from your collection %> 
+    
+    <div class="container">
+      <%# This is where we'll display a form to add a review once the movie is added to your collection %> 
+      
+      <%# This is where we'll display all the reviews for a movies %> 
+      
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

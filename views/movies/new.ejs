@@ -14,8 +14,8 @@
               <% if (movie.poster_path) { %>
                 <img
                   class="card-img-top"
-                  src="<%= movie.poster_path %>"
-                  alt="<%= movie.poster_path %>'s image"
+                  src="https://api.themoviedb.org/3/movie/<%=  movie._id %>/images?api_key=$<%= process.env.API_KEY %>"
+                  alt="<%= movie.title %>'s image"
                   width="100%"
                   height="170"
                 />
