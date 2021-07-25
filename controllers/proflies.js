@@ -6,7 +6,39 @@ export {
   show,
   edit,
   update,
+  addFriend,
+  unFriend,
 
+}
+
+function addFriend(req, res){
+  Profile.findById(req.user.profile)
+  .then(profile => {
+    profile.friends.push(req.params.id)
+    profile.save()
+      .then (() => {
+        res.redirect(`/profiles/${req.params.id}`)
+      })
+  })
+  .catch((err) => {
+    console.log(err)
+    res.redirct('/')
+  })
+}
+
+function unFriend(req,res) {
+  Profile.findById(req.user.profile)
+  .then(profile => {
+    profile.friends.remove({_id: req.params.id})
+    profile.save()
+    .then(()=> {
+      res.redirect(`/profiles/${req.params.id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
 }
 
 function update(req, res) {
@@ -36,6 +68,7 @@ function edit(req, res){
 
 function show(req, res){
   Profile.findById(req.params.id)
+  .populate('friends')
   .then((profile) => {
     Profile.findById(req.user.profile)
     .then(userProfile => {
