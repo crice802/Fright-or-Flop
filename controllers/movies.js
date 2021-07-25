@@ -79,7 +79,7 @@ function show(req, res) {
 }
 
 function search(req, res){
-  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.API_KEY }&query=${ req.body.search }&page=10&with_genres=27`)
+  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.API_KEY }&query=${ req.body.search }&page=1&with_genres=27`)
   .then(response =>{
     console.log(response.data.results)
     res.render('movies/new',{
