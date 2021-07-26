@@ -3,7 +3,7 @@
 
 <h3 class="py-3 my-0 fs-1 bg-light"><%= title %></h3>
 
-<h1>mNew ejso </h1>
+<h1>mNew <%=  %>  </h1>
 
 <% if (results) { %>
 
@@ -11,6 +11,9 @@
     <div class="container py-5 px-3">
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
         <% results.forEach(movie => { %>
+
+       
+
           <div class="col">
             <div class="card bg-dark shadow-sm mt-3">
               <% if (movie.poster_path) { %>

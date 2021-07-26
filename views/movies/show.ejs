@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>mShow<%= JSON.stringify(movie._id) %> <%=  %>  </h1>
+<h1>mShow<%= JSON.stringify(apiResult) %> <%=  %>  </h1>
 
 <main>
   <section class="bg-dark text-secondary px-4">
@@ -87,7 +87,7 @@
     <% if (!movie?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %> 
       <form
         class="text-center"
-        action="/movies/<%= movie._d %>/addToCollection"
+        action="/movies/<%= apiResult.id %>/addToCollection"
         method="POST"
       >
         <input type="text" name="title" hidden value="<%= apiResult.title %>">  
