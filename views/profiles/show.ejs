@@ -1,6 +1,6 @@
 <%- include('../partials/html-head') %>
 
-<h1>pShow //////////<%= movie %> </h1>
+<h1>pShow /<%= JSON.stringify(movie) %> </h1>
 
 <% if (user.profile._id.toString() === profile._id.toString()) { %>
   
@@ -128,12 +128,13 @@
         <%# This is where we'll loop over our movies! %> 
     
         <% movie.forEach(movie => { %>
+          <%= movie %> 
           <div class="col">
             <div class="card bg-dark shadow-sm mb-3">
               <% if (movie.poster_path) { %>
                 <img
                   class="card-img-top"
-                  src="https://image.tmdb.org/t/p/w500/<%=  movie.poster_path %>"
+                  src="<%=  movie.poster_path %>"
                   alt="<%= movie.title %>'s image"
                   width="100%"
                 />
@@ -151,7 +152,7 @@
                   Released: <%= movie.release_date %>
                 </p>
                 <a 
-                  href="/movie/<%= movie._movId %>" 
+                  href="/movies/<%= movie.movId %>" 
                   class="btn btn-primary"
                 >
                   Details
