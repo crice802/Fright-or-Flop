@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as reviewsCtrl from '../controllers/reviews.js'
+import * as reviewsCtrl from "../controllers/reviews.js"
 
 export {
   router
@@ -7,7 +7,7 @@ export {
 
 const router = Router()
 
-router.post('/movies/:/id', isLoggedIn, reviewsCtrl.create)
+router.post('/:id', isLoggedIn, reviewsCtrl.create)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

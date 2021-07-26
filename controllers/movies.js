@@ -60,7 +60,7 @@ function show(req, res) {
   axios
   .get(`https://api.themoviedb.org/3/movie/${ req.params.id }?api_key=${ process.env.API_KEY }`)
   .then((response) => {
-    Movie.findOne ({ movId: response.data.id})
+    Movie.findOne ({ movId: response.data.id })
     // this is where well populate colletedBy
     .populate('collectedBy')
     //this is where we will deep pop our reviews

@@ -11,7 +11,7 @@ const movieSchema = new Schema({
   original_title: String,
   poster_path: String,
   backdrop_path: String || null,
-  release_date: String,
+  release_date: Date,
   production_companies: {
     name: String,
     logo_path: String || null,
