@@ -2,13 +2,10 @@
 <%- include('partials/nav') %>
 
 <main>
+  <h1><%= title %></h1>
   <% if (user) { %>
-    <h1><%= title %></h1>
-    <h3>New Users</h3>
-    
-    <h3>New Reviews</h3>
-    
-    <h3>New Movies Added</h3>
+
+    <h3>Welcome back <%= user.profile.name %> </h3>
     
     
   <% } %>

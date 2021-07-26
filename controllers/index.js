@@ -4,7 +4,7 @@ export {
 
 function index(req, res) {
   res.render('index', {
-    title: 'Latest Activity',
+    title: 'Fright or Flop',
     user: req.user ? req.user : null 
   })
 } 

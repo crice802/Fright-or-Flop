@@ -75,7 +75,7 @@ function show(req, res) {
       res.render("movies/show", {
         title: "Movie Details",
         apiResult: response.data,
-        movie: movie
+        movie
       })
     })
   })

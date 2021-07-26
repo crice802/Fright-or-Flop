@@ -1,5 +1,10 @@
 <%- include('../partials/html-head') %>
+
+<h1>pShow //////////<%= movie %> </h1>
+
 <% if (user.profile._id.toString() === profile._id.toString()) { %>
+  
+  
   <style>
     #profile-dropdown {
       display: none;
@@ -121,6 +126,7 @@
       <h2 class="mb-3"><%= profile.name %>'s movies</h2>
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-1">
         <%# This is where we'll loop over our movies! %> 
+    
         <% movie.forEach(movie => { %>
           <div class="col">
             <div class="card bg-dark shadow-sm mb-3">
@@ -145,7 +151,7 @@
                   Released: <%= movie.release_date %>
                 </p>
                 <a 
-                  href="/movie/<%= movie.movId %>" 
+                  href="/movie/<%= movie._movId %>" 
                   class="btn btn-primary"
                 >
                   Details

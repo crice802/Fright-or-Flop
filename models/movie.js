@@ -6,12 +6,12 @@ export {
 }
 
 const movieSchema = new Schema({
-  name: String,
+  title: String,
   movId: Number,
   original_title: String,
   poster_path: String,
   backdrop_path: String || null,
-  release_date: Date,
+  release_date: String,
   production_companies: {
     name: String,
     logo_path: String || null,

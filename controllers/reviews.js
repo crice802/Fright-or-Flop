@@ -13,7 +13,7 @@ function create(req, res) {
       movie.reviews.push(review._id)
       movie.save()
       .then (()=> {
-        res.resdirect(`/movies/${movie.movId}`)
+        res.redirect(`/movies/${movie.movId}`)
       })
     })
   })
