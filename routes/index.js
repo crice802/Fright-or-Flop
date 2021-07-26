@@ -6,7 +6,7 @@ export {
 
 const router = Router()
 
-router.get('/', isLoggedIn, indexCtrl.index)
+router.get('/', indexCtrl.index)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

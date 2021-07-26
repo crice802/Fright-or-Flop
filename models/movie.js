@@ -18,7 +18,7 @@ const movieSchema = new Schema({
     origin_country: String
   },
   collectedBy:[{ type: Schema.Types.ObjectId, ref: "Profile" }],
-  reviews: [{ type: Schema.Types.ObjectId, ref: "MoviewReview" }],
+  reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
 }, {
   timestamps: true
 })

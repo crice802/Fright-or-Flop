@@ -1,4 +1,5 @@
 import { Movie } from "../models/movie.js";
+import { Review } from "../models/review.js";
 
 import axios from "axios";
 import { response } from "express";
@@ -63,6 +64,12 @@ function show(req, res) {
     // this is where well populate colletedBy
     .populate('collectedBy')
     //this is where we will deep pop our reviews
+    .populate({
+      path: 'reviews',
+      populate: {
+        path: 'author'
+      }
+    })
     .then((movie) => {
       console.log(movie)
       res.render("movies/show", {
