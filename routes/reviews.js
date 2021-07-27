@@ -7,7 +7,7 @@ export {
 
 const router = Router()
 
-router.post('/:id', isLoggedIn, reviewsCtrl.create)
+router.post('/:id', isLoggedIn, reviewsCtrl.reviewCreate)
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

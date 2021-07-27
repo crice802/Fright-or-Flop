@@ -1,16 +1,17 @@
 import { Movie } from "../models/movie.js";
 import { Review } from "../models/review.js";
 
-export {  create }
+export {  reviewCreate }
 
-function create(req, res) {
-  // Add author/game info to req.body (for when we use model.create)
+function reviewCreate(req, res) {
+  // Add author/movie info to req.body (for when we use model.create)
   req.body.author = req.user.profile._id
-  req.body.game = req.params.id
+  req.body.movie = req.params.id
+ 
   // Create the review
   Review.create(req.body)
   .then(review => {
-    // Add the review reference to the Game
+    // Add the review reference to the movie
     Movie.findById(req.params.id)
     .then(movie => {
       movie.reviews.push(review._id)
