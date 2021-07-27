@@ -1,7 +1,7 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
-<h1>mShow<%= JSON.stringify(movie._id) %> <%=  %>  </h1>
+<h1>mShow<%= JSON.stringify(apiResult.id) %> <%=  %>  </h1>
 
 <main>
   <section class="bg-dark text-secondary px-4">
@@ -123,7 +123,7 @@
 
     <div class="container">
       <%# This is where we'll display a form to add a review once the movie is added to your collection %> 
-      <% if (!movie?.reviews.some(review => review.author.equals(user.profile_id)) && movie?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %> 
+      <% if (!movie?.reviews.some(review => review.author.equals(user.profile._id)) && movie?.collectedBy.some(profile => profile._id.equals(user.profile._id))) { %> 
         <form action="/reviews/<%= movie._id %>" method="POST">
           <div class="mb-3 mt-4">
             <label 
