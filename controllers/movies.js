@@ -2,7 +2,7 @@ import { Movie } from "../models/movie.js";
 import { Review } from "../models/review.js";
 
 import axios from "axios";
-import { response } from "express";
+// import { response } from "express";
 
 export {
   search,
@@ -13,23 +13,23 @@ export {
 }
 
 function addToCollection(req, res) {
-  //searching if collected by has user profile
+  // Add id of the logged in user to req.body for creating a game for the first time (if it doesn't exist in the database)
   req.body.collectedBy = req.user.profile._id
-  //find the movie by id
+    // Look to see if the game already exists in the database
   Movie.findOne({ movId: req.params.id })
   .then((movie) => {
-    //if movie has been has been collected by user add user to info to collectedBy array 
+    // If it does, push the user's profile id to game.collectedBy
     if (movie) {
-      movie.collectedBy.push(req.use.profile._id)
+      movie.collectedBy.push(req.user.profile._id)
       movie.save()
       .then(() => {
-        res.redirect(`movies/${ req.params.id }`)
+        res.redirect(`/movies/${req.params.id}`)
       })
     } else {
-      //if movie isnt in database create it
+         // If it doesn't exist in the database, create it!
       Movie.create(req.body)
       .then(() => {
-        res.redirect(`/movies/${ req.params.id }`)
+        res.redirect(`/movies/${req.params.id}`)
       })
     }
   })
