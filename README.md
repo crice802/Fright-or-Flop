@@ -1,70 +1,56 @@
 # Fright or Flop: <br>Creepy Critiques
 
-Search and review your favorite scary movies 
+Search and review your favorite scary movies .  Follow other users and see what movies they have watched and reviewed
 
-## Getting Started
+## why?
+I have always loved spooky and scary movies.  Would love to have a place where fellow horror fans can rate and review thier favorite movies
+# Getting Started
+[Fright or Flop] (https://fright-or-flop.herokuapp.com/)<br>
+[Trello Board] (https://trello.com/b/ZQETLkkC/frigh-or-flop-creepy-crtiques)
 
-__Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
+# Screenshots
 
-```bash
-git clone https://github.com/SEI-Remote/men-stack-oauth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
+
+# Technologies Used
+TheMovieDatabaseAPI, Javascript, Node.js, Express, Mongoose, Mongo DB, Bootstrap, EJS
+
+# Next steps: [icebox] 
+- [x] show for loggin user recent updates in app.
+- [ ] Movie Watch List
+- [ ] Show overall score based on avg ratings
+- [ ] 
+# Code Sample:
+```javascript
+function show(req, res) {
+  axios
+  .get(`https://api.themoviedb.org/3/movie/${ req.params.id }?api_key=${ process.env.API_KEY }`)
+  .then((response) => {
+    Movie.findOne ({ movId: response.data.id })
+    // this is where well populate colletedBy
+    .populate('collectedBy')
+    //this is where we will deep pop our reviews
+    .populate({
+      path: 'reviews',
+      populate: {
+        path: 'author'
+      }
+    })
+    .then((movie) => {
+      console.log(movie)
+      res.render("movies/show", {
+        title: "Movie Details",
+        apiResult: response.data,
+        movie
+      })
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 ```
+# API Reference
+[TheMovieDatabaseAPI] (https://developers.themoviedb.org/3/getting-started/introduction)
 
-Once you are in the project directory:
-
-```bash
-rm -rf .git
-```
-
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
-
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
-
-Re-initialize a git repository:
-
-```bash
-git init
-```
-
-Use the GitHub CLI to create a new project repository on GitHub:
-
-```bash
-gh repo create <name-of-your-app-here>
-```
-
-Run npm i to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-Then, make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
-
-touch a .env file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CALLBACK=https://localhost:3000/auth/google/oauth2callback
-GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
-Replace the `DATABASE_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_SECRET`, and `SESSION_SECRET` with values that you provide.
-
-Delete this README.md
-
-You're done!
+# Credits
