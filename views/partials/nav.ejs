@@ -14,11 +14,6 @@
         <li class="d-flex align-items-center mb-2 mb-lg-0 fs-3">
           <a href="/" class="text-light text-decoration-none">Fright or Flop:<br>Creepy Critiques</a>
         </li>
-        <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
-          <a href="/profiles" class="text-light text-decoration-none">
-            View Users
-          </a>
-        </li>
       </ul>
       <form action="/movies/search" method="POST" class="d-flex align-items-center me-3">
         <input name="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -26,6 +21,13 @@
       <div class="text-end d-flex align-items-center">
         <% // TODO: Add login logic here %>
         <% if (user) { %>
+         <div>
+          <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
+            <a href="/profiles" class="text-light text-decoration-none">
+              View Users
+            </a>
+          </li>
+          </div>
           <div id="profile-dropdown" class="dropdown text-end">
             <a 
               id="dropdownUser"

@@ -1,13 +1,120 @@
 <%- include('partials/html-head') %>
 <%- include('partials/nav') %>
 
-<main>
-  <h1><%= title %></h1>
+<min class="bg-light">
   <% if (user) { %>
-
-    <h3>Welcome back <%= user.profile.name %> </h3>
-    
-    
-  <% } %>
+  <div class="container">
+    <h1 class="py-4"><%= title %></h1>
+    <h2 class="mb-3">New Movies Added</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-4">
+      <% movies.forEach(movie => { %>
+      <div class="col">
+        <a class="text-decoration-none" href="/movies/<%= movie.movId %>">
+          <div class="card bg-dark shadow-sm mb-3">
+            <% if (movie.poster_path) { %>
+            <img
+              class="card-img-top"
+              src="<%= movie.poster_path %>"
+              alt="<%= movie.title %>'s image"
+              width="100%"
+            />
+            <% } else {%>
+            <img
+              class="card-img-top"
+              src="/images/icons/user.png"
+              alt="A placeholder avatar"
+              width="100%"
+            />
+            <% } %>
+            <div class="card-body">
+              <p class="card-title fs-4 text-light">
+                <% let lastCollectorIdx = movie.collectedBy.length - 1  %> 
+                <%= movie.title %> - added by <%= movie.collectedBy[lastCollectorIdx].name %> 
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) }%>
+    </div>
+    <h2 class="mb-3">New Reviews</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g1 px-4">
+      <% reviews.forEach(review => { %>
+      <div class="col">
+        <div class="card mb-3 bg-secondary">
+          <div class="row g-0">
+            <div class="col-3">
+              <img
+                src="<%= review.author.avatar %>"
+                class="img-fluid rounded-circle ms-2 mt-2"
+                alt="<%= review.author.name %>'s avatar"
+              />
+            </div>
+            <div class="col-9">
+              <div class="card-body">
+                <h3 class="card-title fs-4 mb-0">
+                  <a
+                    class="text-decoration-none text-dark"
+                    href="/profiles/<%= review.author._id %>"
+                  >
+                    <%= review.author.name %>'s
+                  </a>
+                </h3>
+                <small> review of</small>
+                <h4 class="fs-5">
+                  <a
+                  class="text-decoration-none text-dark"
+                  href="/movies/<%= review.movie.movId %>"
+                >
+                  <%= review.movie.title %>
+                </a>
+                </h4>
+                <p class="card-text text-dark">
+                  <%= "🌟".repeat(review.rating) %>
+                </p>
+                <p class="card-text text-dark"><%= review.content %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <h2 class="mb-3">New Users</h2>
+    <div
+      class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g1 px-4"
+    >
+      <% profiles.forEach(profile => { %>
+      <div class="col">
+        <a class="text-decoration-none" href="/profiles/<%= profile._id %>">
+          <div class="card mb-4 shadow-sm">
+            <% if (profile.avatar) { %>
+            <img
+              class="card-img-top"
+              src="<%= profile.avatar %>"
+              alt="<%= profile.name %>'s avatar"
+              width="100%"
+            />
+            <% } else {%>
+            <img
+              class="card-img-top"
+              src="/images/icons/user.png"
+              alt="A placeholder avatar"
+              width="100%"
+            />
+            <% } %>
+            <div class="card-body">
+              <p class="card-title text-dark fs-5 mb-0"><%= profile.name %></p>
+              <p class="card-text text-dark fs-6 mt-0">
+                Joined <%= profile.createdAt.toLocaleDateString() %>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <% }) %>
+    </div>
+    <%  %> 
 </main>
 
+<%- include('partials/footer') %>
