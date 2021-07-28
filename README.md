@@ -1,10 +1,8 @@
-# MEN Stack with OAuth Template
+# Fright or Flop: <br>Creepy Critiques
 
-This is a MEN Stack template that includes OAuth.
+Search and review your favorite scary movies 
 
-Use this to go build things! 🚀
-
-## To Use This Template
+## Getting Started
 
 __Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
 

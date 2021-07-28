@@ -1,6 +1,6 @@
 <%- include('../partials/html-head') %>
 
-<h1>pShow /<%= JSON.stringify(movie) %> </h1>
+
 
 <% if (user.profile._id.toString() === profile._id.toString()) { %>
   
@@ -128,7 +128,7 @@
         <%# This is where we'll loop over our movies! %> 
     
         <% movie.forEach(movie => { %>
-          <%= movie %> 
+         
           <div class="col">
             <div class="card bg-dark shadow-sm mb-3">
               <% if (movie.poster_path) { %>
