@@ -3,19 +3,21 @@
 Search and review your favorite scary movies .  Follow other users and see what movies they have watched and reviewed
 
 ## why?
-I have always loved spooky and scary movies. I grew up in venice beach, down the street from the Roger Corman Studios. I Would love to have a place where fellow horror fans can rate and review thier favorite movies
+I have always loved spooky and scary movies. I grew up in venice beach, down the street from the [Roger Corman](https://en.wikipedia.org/wiki/Roger_Corman) Studios. I Would love to have a place where fellow horror fans can rate and review thier favorite movies
 # Getting Started
 [Fright or Flop] (https://fright-or-flop.herokuapp.com/)<br>
 [Trello Board] (https://trello.com/b/ZQETLkkC/frigh-or-flop-creepy-crtiques)
 ![TB](public/images/Screen%20Shot%202021-07-29%20at%203.42.52%20PM.png)
 
 # Screenshots
+**Desktop:**
 ![desktop](/public/images/desktop1.png)
 
 ![desktop](/public/images/desktop2.png)
 
 ![desktop](/public/images/desktop3.png)
 
+**Mobile:**
 ![mobile](/public/images/mobile1.JPG)
 
 ![mobile](/public/images/mobile2.JPG)
@@ -23,7 +25,7 @@ I have always loved spooky and scary movies. I grew up in venice beach, down the
 ![mobile](/public/images/mobile3.JPG)
 
 # Technologies Used
-**TheMovieDatabaseAPI:**<br>![TMDB](public/images/tmdb.svg) **Javascript:**<br>![JS](public/images/JSlogo.png)<br>**Node.js:**<br>![Node](/public/images/nodeLogo.png) <br>**Express:**<br>![Express](public/images/expresslogo.jpeg)<br>**Mongoose:**<br>![Mongoose](public/images/mongooseLogo.png)<br>**MongoDB:**<br>![mongooDB](public/images/mongoDBlogo.png)<br>**Bootstrap:**<br>![BootStrap](public/images/Bootstrap_logo.svg.png) <br>**EJS:**<br>![ejs](public/images/ejsLogo.png)<br>**Google Oauth:**<br>![google](public/images/GOauth.jpeg)<br>**Passport:**<br>![passport](public/images/passportLogo.png)<br>**Postman:**<br>![postman](public/images/postmanlogo.png)<br>**Trello Board**<br>![trello](public/images/trellologo.png)
+**TheMovieDatabaseAPI:**<br>![TMDB](public/images/Tmdblogo.png)<br>**Javascript:**<br>![JS](public/images/JSlogo.png)<br>**Node.js:**<br>![Node](/public/images/nodeLogo.png) <br>**Express:**<br>![Express](public/images/expresslogo.jpeg)<br>**Mongoose:**<br>![Mongoose](public/images/mongooseLogo.png)<br>**MongoDB:**<br>![mongooDB](public/images/mongoDBlogo.png)<br>**Bootstrap:**<br>![BootStrap](public/images/Bootstrap_logo.svg.png) <br>**EJS:**<br>![ejs](public/images/ejsLogo.png)<br>**Google Oauth:**<br>![google](public/images/GOauth.jpeg)<br>**Passport:**<br>![passport](public/images/passportLogo.png)<br>**Postman:**<br>![postman](public/images/postmanlogo.png)<br>**Trello Board**<br>![trello](public/images/trellologo.png)
 
 # Next steps: [icebox] 
 - [x] show for loggin user recent updates in app.
