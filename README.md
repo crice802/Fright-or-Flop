@@ -23,7 +23,7 @@ I have always loved spooky and scary movies. I grew up in venice beach, down the
 ![mobile](/public/images/mobile3.JPG)
 
 # Technologies Used
-TheMovieDatabaseAPI:<br>![TMDB](public/images/tmdb.svg) Javascript:<br>![JS](public/images/JSlogo.png)<br> Node.js:<br>![Node](/public/images/nodeLogo.png) <br>Express:<br>![Express](public/images/expresslogo.jpeg)<br> Mongoose:<br>![Mongoose](public/images/mongooseLogo.png)<br> MongoDB:<br>![mongooDB](public/images/mongoDBlogo.png)<br> Bootstrap:<br>![BootStrap](public/images/Bootstrap_logo.svg.png) <br>EJS:<br>![ejs](public/images/ejsLogo.png)<br>Google Oauth:<br>![google](public/images/GOauth.jpeg)<br>Passport:<br>![passport](public/images/passportLogo.png)
+**TheMovieDatabaseAPI:**<br>![TMDB](public/images/tmdb.svg) **Javascript:**<br>![JS](public/images/JSlogo.png)<br>**Node.js:**<br>![Node](/public/images/nodeLogo.png) <br>**Express:**<br>![Express](public/images/expresslogo.jpeg)<br>**Mongoose:**<br>![Mongoose](public/images/mongooseLogo.png)<br>**MongoDB:**<br>![mongooDB](public/images/mongoDBlogo.png)<br>**Bootstrap:**<br>![BootStrap](public/images/Bootstrap_logo.svg.png) <br>**EJS:**<br>![ejs](public/images/ejsLogo.png)<br>**Google Oauth:**<br>![google](public/images/GOauth.jpeg)<br>**Passport:**<br>![passport](public/images/passportLogo.png)<br>**Postman:**<br>![postman](public/images/postmanlogo.png)<br>**Trello Board**<br>![trello](public/images/trellologo.png)
 
 # Next steps: [icebox] 
 - [x] show for loggin user recent updates in app.
@@ -320,8 +320,8 @@ const Movie = mongoose.model("Movie", movieSchema)
 [TheMovieDatabaseAPI] (https://developers.themoviedb.org/3/getting-started/introduction)
 
 # Credits
-The Movie Database:<br> for the API
-![https://www.themoviedb.org/](public/images/tmdb.svg)
+The Movie Database:<br> for the API<br>
+![https://www.themoviedb.org/](public/images/Tmdblogo.png)
 
 @Ben Manley instructor for GA:<br>Guidance support and mentoring
 ![GeneralAssembly](public/images/GA.png)
