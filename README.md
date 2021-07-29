@@ -9,6 +9,9 @@ I have always loved spooky and scary movies.  Would love to have a place where f
 [Trello Board] (https://trello.com/b/ZQETLkkC/frigh-or-flop-creepy-crtiques)
 
 # Screenshots
+![Desktop] (/public/images/desktop 1.png)
+
+
 
 
 # Technologies Used

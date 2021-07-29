@@ -70,7 +70,7 @@ function show(req, res) {
         path: 'author'
       }
     })
-    .then((movie) => {
+    .then((movie) => {h
       res.render("movies/show", {
         title: "Movie Details",
         apiResult: response.data,
