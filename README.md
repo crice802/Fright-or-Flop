@@ -3,7 +3,7 @@
 Search and review your favorite scary movies .  Follow other users and see what movies they have watched and reviewed
 
 ## why?
-I have always loved spooky and scary movies.  Would love to have a place where fellow horror fans can rate and review thier favorite movies
+I have always loved spooky and scary movies. I grew up in venice beach, down the street from the Roger Corman Studios. I Would love to have a place where fellow horror fans can rate and review thier favorite movies
 # Getting Started
 [Fright or Flop] (https://fright-or-flop.herokuapp.com/)<br>
 [Trello Board] (https://trello.com/b/ZQETLkkC/frigh-or-flop-creepy-crtiques)
@@ -22,9 +22,7 @@ I have always loved spooky and scary movies.  Would love to have a place where f
 ![mobile](/public/images/mobile3.JPG)
 
 # Technologies Used
-TheMovieDatabaseAPI, Javascript, Node.js, Express, Mongoose, Mongo DB, Bootstrap, EJS,
-Google Oauth,
-Passport
+TheMovieDatabaseAPI:<br>![TMDB](public/images/tmdb.svg) Javascript:<br>![JS](public/images/JSlogo.png)<br> Node.js:<br>![Node](/public/images/nodeLogo.png) <br>Express:<br>![Express](public/images/expresslogo.jpeg)<br> Mongoose:<br>![Mongoose](public/images/mongooseLogo.png)<br> MongoDB:<br>![mongooDB](public/images/mongoDBlogo.png)<br> Bootstrap:<br>![BootStrap](public/images/Bootstrap_logo.svg.png) <br>EJS:<br>![ejs](public/images/ejsLogo.png)<br>Google Oauth:<br>![google](public/images/GOauth.jpeg)<br>Passport:<br>![passport](public/images/passportLogo.png)
 
 # Next steps: [icebox] 
 - [x] show for loggin user recent updates in app.
@@ -67,3 +65,11 @@ function show(req, res) {
 [TheMovieDatabaseAPI] (https://developers.themoviedb.org/3/getting-started/introduction)
 
 # Credits
+The Movie Database:<br> for the API
+![https://www.themoviedb.org/](public/images/tmdb.svg)
+
+@Ben Manley instructor for GA:<br>Guidance support and mentoring
+![GeneralAssembly](public/images/GA.png)
+
+Aftin Combs:<br> for the loving support<br>
+Ken from Sanctified:<br> for help on the great name.
