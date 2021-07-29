@@ -9,19 +9,29 @@ I have always loved spooky and scary movies.  Would love to have a place where f
 [Trello Board] (https://trello.com/b/ZQETLkkC/frigh-or-flop-creepy-crtiques)
 
 # Screenshots
-![Desktop] (/public/images/desktop 1.png)
+![desktop](/public/images/desktop1.png)
 
+![desktop](/public/images/desktop2.png)
 
+![desktop](/public/images/desktop3.png)
 
+![mobile](/public/images/mobile1.JPG)
+
+![mobile](/public/images/mobile2.JPG)
+
+![mobile](/public/images/mobile3.JPG)
 
 # Technologies Used
-TheMovieDatabaseAPI, Javascript, Node.js, Express, Mongoose, Mongo DB, Bootstrap, EJS
+TheMovieDatabaseAPI, Javascript, Node.js, Express, Mongoose, Mongo DB, Bootstrap, EJS,
+Google Oauth,
+Passport
 
 # Next steps: [icebox] 
 - [x] show for loggin user recent updates in app.
+- [x] mobile responsive
 - [ ] Movie Watch List
 - [ ] Show overall score based on avg ratings
-- [ ] 
+
 # Code Sample:
 ```javascript
 function show(req, res) {
