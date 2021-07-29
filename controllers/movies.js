@@ -86,12 +86,13 @@ function show(req, res) {
 }
 
 function search(req, res){
-  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.API_KEY }&query=${ req.body.search }&page=1&with_genres=27`)
+  axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.API_KEY }&query=${ req.body.search }&page=1`)
   .then(response =>{
-    console.log(response.data.results)
+    console.log('hey look here',response.data.results.filter(movie => movie.genre_ids.includes(27)))
+    let filteredMovies = response.data.results.filter(movie => movie.genre_ids.includes(27))
     res.render('movies/new',{
       title: 'Search Results',
-      results: response.data.results
+      results: filteredMovies
     })
   })
   .catch(err => {

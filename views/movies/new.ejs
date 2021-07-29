@@ -1,18 +1,16 @@
+Movie new view
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
 
 <h3 class="py-3 my-0 fs-1 bg-light"><%= title %></h3>
-
-<h1>mNew <%= (JSON.stringify(results.genre)) %>  </h1>
-
 <% if (results) { %>
 
   <main class="bg-light">
     <div class="container py-5 px-3">
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g5 px-sm-5 px-4">
         <% results.forEach(movie => { %>
-<%= JSON.stringify(movie.genre_ids) %> 
-       <% if (movie.genre_ids.some(27)) { %> 
+
+       
 
           <div class="col">
             <div class="card bg-dark shadow-sm mt-3">
@@ -42,12 +40,10 @@
               </div>
             </div>
           </div>
-          <% } else { %> 
-            <h2>Sorry nothing was found</h2>
-            <% } %> 
         <% }) %>
       </div>
     </div>
   </main>
+<% } %> 
 
 <%- include('../partials/footer') %>
