@@ -18,7 +18,7 @@ function addToCollection(req, res) {
     // Look to see if the movie already exists in the database
   Movie.findOne({ movId: req.params.id })
   .then((movie) => {
-    // If it does, push the user's profile id to movie.collectedBy
+    // If it does, push the user's profile id to movie.collectedBy and save 
     if (movie) {
       movie.collectedBy.push(req.user.profile._id)
       movie.save()
@@ -57,9 +57,11 @@ function removeFromCollection(req, res) {
 }
 
 function show(req, res) {
+  //sending get request to api and passine the data as response
   axios
   .get(`https://api.themoviedb.org/3/movie/${ req.params.id }?api_key=${ process.env.API_KEY }`)
   .then((response) => {
+    // find movie in api using the response data movId = api call 
     Movie.findOne ({ movId: response.data.id })
     // this is where well populate colletedBy
     .populate('collectedBy')
@@ -87,6 +89,7 @@ function show(req, res) {
 function search(req, res){
   axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.API_KEY }&query=${ req.body.search }&page=1`)
   .then(response =>{
+    //filtering the response from our api call to limit only horror movies or movies with genre_ids 27
     let filteredMovies = response.data.results.filter(movie => movie.genre_ids.includes(27))
     res.render('movies/new',{
       title: 'Search Results',

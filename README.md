@@ -325,7 +325,7 @@ const Movie = mongoose.model("Movie", movieSchema)
 The Movie Database:<br> for the API<br>
 ![https://www.themoviedb.org/](public/images/Tmdblogo.png)
 
-@Ben Manley instructor for GA:<br>Guidance support and mentoring
+@Ben Manley instructor for GA:<br>Guidance support and mentoring<br>
 ![GeneralAssembly](public/images/GA.png)
 
 Aftin Combs:<br> for the loving support<br>
