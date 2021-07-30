@@ -32,6 +32,7 @@ I have always loved spooky and scary movies. I grew up in Venice, CA. down the s
 - [x] mobile responsive
 - [ ] Movie Watch List
 - [ ] Show overall score based on avg ratings
+- [ ] add chatroom and messaging functionality using web sockets
 
 # **Code Sample:**
 Controller Function:
