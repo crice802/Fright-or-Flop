@@ -41,9 +41,11 @@
     </div>
     <button class="btn btn-primary ms-5" type="submit">Reply</button>
   </form>
-  <h2 class="mb-3">All Replies</h2>
+  <% if (message?.replies?.length) { %>
+    <h2 class="mb-3">All Replies</h2>
+  <% } %>
   <%# This is where we'll loop over and display replies %> 
-  <% message.replies.forEach(reply => { %>
+  <% message?.replies?.reverse().forEach(reply => { %>
     <section class="p-2 p-md-3 mb-3 rounded mx-4 border shadow-sm">
       <div class="col-md-10 px-0">
         <h4 class="mb-0 fs-5 fst-italic"> 
@@ -66,7 +68,6 @@
       </div>
     </section>
   <% }) %>
-  
 </main>
 
 <%- include('../partials/footer') %>
