@@ -1,15 +1,14 @@
 import 'dotenv/config.js'
 import express from 'express'
 import path from 'path'
-import { fileURLToPath } from 'url'
 import createError from 'http-errors'
 import session from 'express-session'
 import logger from 'morgan'
 import methodOverride from 'method-override'
 import passport from 'passport'
-import { passUserToView } from './middleware/middleware.js'
 import cors from 'cors'
-
+import { fileURLToPath } from 'url'
+import { passUserToView } from './middleware/middleware.js'
 // create the express app
 const app = express()
 
@@ -25,6 +24,7 @@ import { router as authRouter } from './routes/auth.js'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as moviesRouter} from './routes/movies.js'
 import { router as reviewsRouter } from './routes/reviews.js'
+import { router as messagesRouter } from './routes/messages.js'
 
 // view engine setup
 app.set(
@@ -71,6 +71,7 @@ app.use('/auth', authRouter)
 app.use('/movies', moviesRouter)
 app.use('/profiles', profilesRouter)
 app.use('/reviews', reviewsRouter)
+app.use('/messages', messagesRouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))
