@@ -2,11 +2,11 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 export {
-  Message   
+  Message
 }
 
 const replySchema = new Schema({
-  author: { type: Schema.Types.ObjectId, ref: 'Profile' },
+  author: {type: Schema.Types.ObjectId, ref: 'Profile'},
   content: String
 },{
   timestamps: true
@@ -15,9 +15,10 @@ const replySchema = new Schema({
 const messageSchema = new Schema({
   title: String,
   content: String,
-  author: { type: Schema.Types.ObjectId, ref: 'Profile' ,}
+  author: {type: Schema.Types.ObjectId, ref: 'Profile'},
+  replies: [replySchema]
 },{
-  timestamps: true
+  timestamps: true,
 })
 
 const Message = mongoose.model("Message", messageSchema)
