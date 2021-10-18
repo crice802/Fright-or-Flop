@@ -1,5 +1,5 @@
-import { Router } from "express";
-import * as messagesCtrl from '../controllers/messages.js'
+import { Router } from 'express'
+import * as messagesCtrl from "../controllers/messages.js"
 
 export {
   router
@@ -12,7 +12,7 @@ router.post('/', isLoggedIn, messagesCtrl.create)
 router.get('/:id', isLoggedIn, messagesCtrl.show)
 router.post('/:id', isLoggedIn, messagesCtrl.reply)
 
-function isLoggedIn(req, res, next){
-  if (req.isAuthenticated()) return next()
-  res.redirect("/auth/google")
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
 }

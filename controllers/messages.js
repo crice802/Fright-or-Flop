@@ -1,4 +1,4 @@
-import { Message } from "../models/message";
+import { Message } from '../models/message.js'
 
 export { 
   index,
@@ -8,12 +8,13 @@ export {
 }
 
 function reply(req, res) {
+  // Add author of reply to req.body
+  req.body.author = req.user.profile._id
   Message.findById(req.params.id)
-  .then((message)=> {
-    req.body.author = req.user.profile._id
+  .then(message => {
     message.replies.push(req.body)
     message.save()
-    .then(()=> {
+    .then(() => {
       res.redirect(`/messages/${req.params.id}`)
     })
   })
@@ -28,7 +29,7 @@ function show(req, res) {
       path: 'author'
     }
   })
-  .then((message)=> {
+  .then(message => {
     res.render('messages/show', {
       title: 'Message Details',
       message
@@ -36,19 +37,23 @@ function show(req, res) {
   })
 }
 
-function create(req, res){
+function create(req, res) {
+  // Add currently logged in user's profile id to req.body
   req.body.author = req.user.profile._id
-  Message.create()
+  Message.create(req.body)
+  .then(()=> {
+    res.redirect('/messages')
+  })
 }
 
 function index(req, res) {
   Message.find({})
   .populate('author')
-  .sort({ createdAt: "asc" })
-  .then((messages) => {
+  .sort({ createdAt: "desc" })
+  .then(messages => {
     res.render('messages/index', {
-      title: 'Message Board',
-      messages: messages.reverse()
+      title: "Message Board",
+      messages
     })
   })
 }
