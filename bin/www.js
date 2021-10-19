@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-
+ import { Server } from 'socket.io'
 import { app } from '../server.js'
 import debug from 'debug'
 import https from 'https'
@@ -46,6 +46,23 @@ if (process.env.NODE_ENV !== 'production') {
   server = http.createServer(app)
 }
 
+// Define an empty object to hold all of the 'chatters'
+let chatters = {}
+
+// This is where all of our server-side socket.io functionality will exist.
+
+let io = new Server(server)  
+
+io.on('connection', socket => {
+  // When anyone 'enters the room (loads the page)', add them to the list and play a sound
+  
+  // When anyone 'leaves the room (navigates away from the page)', remove them from the list and play a sound
+  
+  // When anyone sends a message, send the message to all of the connected clients and play a sound
+
+  // When anyone presses a key while typing a message, display a '(user) is typing...' message to all clients
+
+})
 /**
  * Listen on provided port, on all network interfaces.
  */

@@ -1,0 +1,35 @@
+<%- include('partials/html-head') %>
+<script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
+<script>
+  const socket = io()
+</script>
+<%- include('partials/nav') %>
+
+<h3>Live <%= title %></h3>
+<p>Users in the room:</p>
+<%# Notice the <ul> here that we'll be appending chatroom users to! %>
+<ul id="chatters"></ul>
+
+<%# OOH, hidden inputs will handle sending our user's information to the server! %> 
+<input type="text" id="avatar" hidden name="avatar" value="<%= profile.avatar %>">
+<input type="text" hidden name="username" value="<%= profile.name %>" id="username">
+
+<%# This is the input element where the user will type their message %> 
+<input type="text" id="message">
+
+<%# We'll have to add an event listener for this button to send the message to the server %> 
+<a class="btn btn-info" href="#" id="send_message">Send Message</a>
+
+<%# Oh, this is gonna be COOL!  We're gonna display when someone is typing! %>
+<p id="isTyping"></p>
+
+<%# This is where we'll display the chats as they roll in %> 
+<div id="chatroom"></div>
+
+<%# This is where we'll loop over the chats with a forEach %>
+
+
+<%# Make sure to bring in the JavaScript file that holds all of our socket code!!! %> 
+<script src='/javascripts/chat.js'></script>
+
+<%- include('partials/footer') %>
