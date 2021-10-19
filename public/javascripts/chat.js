@@ -12,12 +12,12 @@ let chatters = document.getElementById("chatters");
 
 /**
  * When 'send message' is clicked, emit a message containing the chat 
- * info to the server and send the message to the database for storage
+ * info to the server
  */
 
 /**
  * When a user presses the 'Enter' key, emit a message containing the 
- * chat info to the server and send the message to the database for storage
+ * chat info to the server
  */
 
 /**
@@ -29,8 +29,8 @@ let chatters = document.getElementById("chatters");
 //-----*  Socket Events Here:  *-----// 
 
 /**
- * Send the username to register them with the server 
- * 
+ * Define/execute a function to get the username from the server so 
+ * that it can be broadcast on connection
  */
 
 /**
@@ -49,5 +49,7 @@ let chatters = document.getElementById("chatters");
 
 /**
  * When a new message is posted, play a sound, update the newMessage 
- * element with the message/user info.
+ * element with the message/user info, and add the message to the 
+ * database (we'll check server-side to make sure the message is only 
+ * posted once, by checking the id of the user making the post)
  */

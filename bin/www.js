@@ -32,6 +32,8 @@ let server
  * When we're in production Herkou will manage our certificates for us so we
  * still want to run our app in http, which lets heroku manage this process.
  */
+// Declare io as a variable outside of the conditional below so that it's scoped properly!
+let io
 
 if (process.env.NODE_ENV !== 'production') {
   const homedir = os.homedir()
@@ -42,17 +44,15 @@ if (process.env.NODE_ENV !== 'production') {
   }
 
   server = https.createServer(options, app)
+	// This is where the new code goes:
+  io = new Server(server)
 } else {
   server = http.createServer(app)
 }
 
 // Define an empty object to hold all of the 'chatters'
-let chatters = {}
 
-// This is where all of our server-side socket.io functionality will exist.
-
-let io = new Server(server)  
-
+// This is where all of our server-side socket.io functionality will exist.  
 io.on('connection', socket => {
   // When anyone 'enters the room (loads the page)', add them to the list and play a sound
   
