@@ -27,7 +27,9 @@
 <div id="chatroom"></div>
 
 <%# This is where we'll loop over the chats with a forEach %>
-
+<% chats.forEach(c => { %>
+  <p><img id="avatarPhoto" height="30" src="<%= c.avatar %>" alt=""> <%= c.username %>: <%= c.message %> - (<%= c.createdAt.toLocaleString() %>)</p>
+<% }) %>
 
 <%# Make sure to bring in the JavaScript file that holds all of our socket code!!! %> 
 <script src='/javascripts/chat.js'></script>

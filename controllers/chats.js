@@ -1,8 +1,16 @@
-import { Profile } from "../models/profile.js";
-import { Chat } from "../models/chat.js";
+import { Profile } from "../models/profile.js"
+import { Chat } from '../models/chat.js'
 
 export {
-  chatroom
+  chatroom,
+  addChat
+}
+
+function addChat(req, res) {
+  Chat.create(req.body)
+  .then(()=> {
+    res.status(201).send('Added')
+  })
 }
 
 function chatroom(req, res) {
@@ -11,11 +19,11 @@ function chatroom(req, res) {
     Chat.find({})
     .sort({ _id: -1 })
     .limit(150)
-    .then((chats) => {
+    .then(chats => {
       res.render('chatroom', {
-        title: "Chat Room",
-        chats,
-        profile
+        title: 'Chat Room', 
+        profile,
+        chats
       })
     })
   })

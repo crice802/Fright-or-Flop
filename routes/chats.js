@@ -7,6 +7,7 @@ export {
 const router = Router()
 
 router.get('/', isLoggedIn, chatsCtrl.chatroom)
+router.post('/', isLoggedIn, chatsCtrl.addChat);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
