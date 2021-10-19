@@ -25,6 +25,7 @@ import { router as profilesRouter } from './routes/profiles.js'
 import { router as moviesRouter} from './routes/movies.js'
 import { router as reviewsRouter } from './routes/reviews.js'
 import { router as messagesRouter } from './routes/messages.js'
+import { router as chatsrouter } from './routes/chats.js'
 
 // view engine setup
 app.set(
@@ -72,6 +73,7 @@ app.use('/movies', moviesRouter)
 app.use('/profiles', profilesRouter)
 app.use('/reviews', reviewsRouter)
 app.use('/messages', messagesRouter)
+app.use('/chatroom', chatsrouter)
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404))
