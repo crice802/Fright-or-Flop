@@ -30,12 +30,19 @@
         <% if (user) { %>
          <div>
           <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
-            <a href="/messages" class="text-light text-decoration-none">
-              Message Board
-            </a>
-            <a>   </a>
+            <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
+              <a href="/messages" class="text-light text-decoration-none">
+                Message Board
+              </a>
+            </li>
+            <%# Add the link to the chat room beneath the message board link %> 
+            <li class="d-flex align-items-center ms-3 mb-2 mb-lg-0">
+              <a href="/chatroom" class="text-light text-decoration-none">
+                Chat Room
+              </a>
+            </li>
             <a href="/profiles" class="text-light text-decoration-none">
-              View Users
+              View  All  Users 
             </a>
           </li>
           </div>
